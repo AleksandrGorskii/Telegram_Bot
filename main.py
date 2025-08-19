@@ -69,7 +69,7 @@ def search(message) -> None:
         markup: InlineKeyboardMarkup = inline_keyboard_markup(complete_url)
         bot.send_message(message.chat.id, result, reply_markup=markup)
         pr1: Thread = Thread(target=the_repetition_interval_of_the_search,
-                               args=(message, history, markup, (10, 17, 25)))
+                               args=(message, history, markup, (1200, 3600, 64800)))
         pr1.start()
         bot.register_next_step_handler(message, onclick)
 
@@ -93,7 +93,7 @@ def record(message) -> None:
 
     record_info(date_now_str, time_now_str, history, name, surname)
 
-    pr2: Thread = Thread(target=the_repetition_interval_of_the_record, args=(message, history, (10, 17, 25)))
+    pr2: Thread = Thread(target=the_repetition_interval_of_the_record, args=(message, history, (1200, 3600, 64800)))
     pr2.start()
     bot.register_next_step_handler(message, onclick)
 
