@@ -7,14 +7,16 @@ import telebot
 import wikipedia
 from telebot.types import InlineKeyboardMarkup
 from wikipedia import WikipediaPage
-from config import BOT_TOKEN
 from db import create_tables, search_info, record_info, add_info
 from kb import reply_keyboard_marcup, inline_keyboard_markup
+import os
+from dotenv import load_dotenv
 
 
 
-
-bot: TeleBot = telebot.TeleBot(BOT_TOKEN)
+load_dotenv()
+token = os.getenv("BOT_TOKEN")
+bot: TeleBot = telebot.TeleBot(token)
 
 
 @bot.message_handler(commands=['start'])
