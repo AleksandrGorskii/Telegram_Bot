@@ -9,14 +9,12 @@ from telebot.types import InlineKeyboardMarkup
 from wikipedia import WikipediaPage
 from db import create_tables, search_info, record_info, add_info
 from kb import reply_keyboard_marcup, inline_keyboard_markup
-import os
-from dotenv import load_dotenv
+from config import BOT_TOKEN
 
 
 
-load_dotenv()
-token = os.getenv("BOT_TOKEN")
-bot: TeleBot = telebot.TeleBot(token)
+
+bot: TeleBot = telebot.TeleBot(BOT_TOKEN)
 
 
 @bot.message_handler(commands=['start'])
