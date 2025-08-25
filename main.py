@@ -15,7 +15,7 @@ from config import BOT_TOKEN
 
 
 bot: TeleBot = telebot.TeleBot(BOT_TOKEN)
-
+bot.delete_webhook()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message) -> None:
